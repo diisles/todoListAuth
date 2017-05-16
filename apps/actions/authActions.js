@@ -11,6 +11,7 @@ exports.loginUser = (email, password) => {
       Keychain.setGenericPassword(user_id, token)
         .then(function () {
           dispatch(authUser(user_id));
+          dispatch(addAlert(token));
         }).catch((error) => {
       dispatch(addAlert('Could not login #1'));
       });
@@ -26,6 +27,7 @@ exports.signupUser = (email, password) => {
       Keychain.setGenericPassword(user_id, token)
         .then(function () {
           dispatch(authUser(user_id));
+          dispatch(addAlert(token));
         }).catch((error) => {
       dispatch(addAlert('Could not login'));
       });
